@@ -1,0 +1,6 @@
+interface User {
+  id: ID!
+  displayName: String!
+  avatarImg: String!
+  userType: UserType!
+}

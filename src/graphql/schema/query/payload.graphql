@@ -1,0 +1,43 @@
+# User, Profile, Store Payload
+type UserPayload {
+  status: Int!
+  user: User
+  userErrors: [Error!]!
+}
+
+type ProfilePayload {
+  status: Int!
+  profile: Profile
+  userErrors: [Error!]!
+}
+
+type StorePayload {
+  status: Int!
+  store: Store
+  userErrors: [Error!]!
+}
+
+# TimelinePayload
+type PromoTimelinePayload {
+  status: Int!
+  promoTimeline: PromoConnection!
+  userErrors: [Error!]!
+}
+
+type ProfileTimelinePayload {
+  status: Int!
+  profileTimeline: PostConnection!
+  userErrors: [Error!]!
+}
+
+type StoreTimelinePayload {
+  status: Int!
+  storeTimeline: PostConnection!
+  userErrors: [Error!]!
+}
+
+type StoreReviewsPayload {
+  status: Int!
+  storeReviews: ReviewConnection!
+  userErrors: [Error!]!
+}

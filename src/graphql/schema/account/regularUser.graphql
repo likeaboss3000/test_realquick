@@ -1,0 +1,23 @@
+type RegularUser implements User {
+  id: ID!
+  email: String!
+  displayName: String!
+  avatarImg: String!
+  userType: UserType!
+  profile: Profile!
+  followingCount: Int!
+  followerCount: Int!
+  hasFollowed: Boolean!
+}
+
+type Profile {
+  id: ID!
+  description: String
+  owner: RegularUser!
+  posts(filter: FetchPostFilter): ProfileTimelinePayload!
+}
+
+enum UserType {
+  Regular
+  Business
+}

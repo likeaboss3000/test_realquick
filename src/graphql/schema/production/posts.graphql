@@ -1,0 +1,66 @@
+type RegularByRegularUser implements Post {
+  id: ID!
+  body: String!
+  images: [PostImage!]!
+  postType: PostType!
+  author: RegularUser!
+  profile: Profile!
+  comments: [Comment!]!
+  likeCount: Int!
+  commentCount: Int!
+  bookmarkCount: Int!
+}
+
+type Review implements Post {
+  id: ID!
+  body: String!
+  images: [PostImage!]!
+  postType: PostType!
+  author: RegularUser!
+  profile: Profile!
+  store: Store!
+  comments: [Comment!]!
+  likeCount: Int!
+  commentCount: Int!
+  bookmarkCount: Int!
+}
+
+type RegularByBusinessUser implements Post {
+  id: ID!
+  body: String!
+  images: [PostImage!]!
+  postType: PostType!
+  author: BusinessUser!
+  stores: [Store!]!
+  category: [BusinessCategory!]!
+  comments: [Comment!]!
+  likeCount: Int!
+  commentCount: Int!
+  bookmarkCount: Int!
+}
+
+type PromoFlyer implements Post {
+  id: ID!
+  title: String!
+  body: String!
+  images: [PostImage!]!
+  postType: PostType!
+  author: BusinessUser!
+  stores: [Store!]!
+  category: [BusinessCategory!]!
+  comments: [Comment!]!
+  likeCount: Int!
+  commentCount: Int!
+  bookmarkCount: Int!
+}
+
+type PostImage {
+  original: String
+}
+
+enum PostType {
+  RegularByRegularUser
+  RegularByBusinessUser
+  Review
+  PromoFlyer
+}

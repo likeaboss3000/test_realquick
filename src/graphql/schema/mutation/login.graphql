@@ -1,0 +1,15 @@
+type Mutation {
+  login(data: LoginInput!): LoginPayload!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginPayload {
+  status: Int!
+  user: User
+  token: String
+  userErrors: [Error!]!
+}

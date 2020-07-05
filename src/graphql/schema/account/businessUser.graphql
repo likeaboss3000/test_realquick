@@ -1,0 +1,27 @@
+type BusinessUser implements User {
+  id: ID!
+  email: String!
+  displayName: String!
+  avatarImg: String!
+  category: [BusinessCategory!]!
+  userType: UserType!
+  stores: [Store!]!
+  followingCount: Int!
+  followerCount: Int!
+  hasFollowed: Boolean!
+}
+
+type Store {
+  id: ID!
+  description: String!
+  owner: BusinessUser!
+  posts(filter: FetchPostFilter): StoreTimelinePayload!
+}
+
+enum BusinessCategory {
+  Food
+  Drink
+  Grocery
+  Entertainment
+  Services
+}
