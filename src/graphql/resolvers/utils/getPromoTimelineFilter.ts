@@ -1,7 +1,7 @@
 export function getPromoTimelineFilter(
   filter: PromoTimelineFilterInput
 ): PromoTimelineFilter {
-  let promoTimelineFilter: any;
+  let promoTimelineFilter: { [key: string]: any } = {};
   try {
     const { cursor, limit, category } = filter;
     if (limit > 30) {
@@ -19,7 +19,7 @@ export function getPromoTimelineFilter(
     }
     throw e;
   }
-  return promoTimelineFilter;
+  return promoTimelineFilter as PromoTimelineFilter;
 }
 
 export interface PromoTimelineFilterInput {

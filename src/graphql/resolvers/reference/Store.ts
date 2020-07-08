@@ -18,6 +18,7 @@ const Store = {
         filter: postsFilter,
         storeId: id,
       });
+
       const { posts, total } = await ReadModel.getStoreTimeline(pipeline);
       const postConnection = getPaginatedObject({ posts, total });
 

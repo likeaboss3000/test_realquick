@@ -1,11 +1,9 @@
 import { generateToken } from '../utils/generateToken';
 
-export async function login(
-  parent,
-  { email, password }: { email: string; password: string },
-  { ReadModel }
-) {
+export async function login(parent, { data }, { ReadModel }) {
   try {
+    const { email, password }: { email: string; password: string } = data;
+
     if (email !== password) {
       const err = new Error('Password is your email. They must be the same.');
       err.name = 'LoginError';

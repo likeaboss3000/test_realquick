@@ -1,40 +1,43 @@
 type RegularByRegularUser implements Post {
   id: ID!
-  body: String!
+  content: String!
   images: [PostImage!]!
   postType: PostType!
   author: RegularUser!
   profile: Profile!
-  comments: [Comment!]!
+  # comments: [Comment!]!
   likeCount: Int!
+  shareCount: Int!
   commentCount: Int!
   bookmarkCount: Int!
 }
 
 type Review implements Post {
   id: ID!
-  body: String!
+  content: String!
   images: [PostImage!]!
   postType: PostType!
   author: RegularUser!
   profile: Profile!
   store: Store!
-  comments: [Comment!]!
+  # comments: [Comment!]!
   likeCount: Int!
+  shareCount: Int!
   commentCount: Int!
   bookmarkCount: Int!
 }
 
 type RegularByBusinessUser implements Post {
   id: ID!
-  body: String!
+  content: String!
   images: [PostImage!]!
   postType: PostType!
   author: BusinessUser!
   stores: [Store!]!
   category: [BusinessCategory!]!
-  comments: [Comment!]!
+  # comments: [Comment!]!
   likeCount: Int!
+  shareCount: Int!
   commentCount: Int!
   bookmarkCount: Int!
 }
@@ -42,20 +45,21 @@ type RegularByBusinessUser implements Post {
 type PromoFlyer implements Post {
   id: ID!
   title: String!
-  body: String!
+  content: String!
   images: [PostImage!]!
   postType: PostType!
   author: BusinessUser!
   stores: [Store!]!
   category: [BusinessCategory!]!
-  comments: [Comment!]!
+  # comments: [Comment!]!
   likeCount: Int!
+  shareCount: Int!
   commentCount: Int!
   bookmarkCount: Int!
 }
 
 type PostImage {
-  original: String
+  original: String!
 }
 
 enum PostType {

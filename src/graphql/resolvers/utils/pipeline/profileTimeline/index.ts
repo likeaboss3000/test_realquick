@@ -17,8 +17,8 @@ export function getProfileTimelinePipeline({
     const array = [
       MatchProfileIdObject.builder(profileId),
       MatchCursorObject.builder(filter),
-      SortObject.builder(filter),
-      FacetObject.builder(filter, currentUser.id),
+      SortObject.builder(),
+      FacetObject.builder(filter, currentUser ? currentUser.id : null),
     ];
     array.forEach((object) => {
       if (object) pipeline.push(object);

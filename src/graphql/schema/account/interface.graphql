@@ -3,4 +3,7 @@ interface User {
   displayName: String!
   avatarImg: String!
   userType: UserType!
+  followingCount: Int!
+  followerCount: Int!
+  hasFollowed: Boolean!
 }

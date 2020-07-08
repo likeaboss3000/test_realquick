@@ -1,9 +1,10 @@
 const RegularUser = {
   async profile({ profile }, args, { ReadModel }) {
-    return ReadModel.fetchProfile({ profileId: profile.id });
+    const values = await ReadModel.fetchProfile({ profileId: profile.id });
+    console.log(values);
+    return values;
   },
-  async hasFollowed({ id, hasFollowed }, args, { ReadModel, currentUser }) {
-    if (hasFollowed) return hasFollowed;
+  async hasFollowed({ id }, args, { ReadModel, currentUser }) {
     if (!currentUser) return false;
     return ReadModel.hasFollowedUser({ id, currentUserId: currentUser.id });
   },

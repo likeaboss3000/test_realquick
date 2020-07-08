@@ -22,13 +22,13 @@ require('dotenv').config();
           if (!token) {
             currentUser = null;
           } else {
-            const { sub, userType } = jwt.verify(
+            const payload = jwt.verify(
               token,
               process.env.JWT_SECRET
             ) as CurrentUser;
             currentUser = {
-              id: sub,
-              userType,
+              id: payload.sub,
+              userType: payload.userType,
             };
           }
         } catch (e) {

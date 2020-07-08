@@ -1,4 +1,8 @@
 interface Post {
   id: ID!
   postType: PostType!
+  likeCount: Int!
+  shareCount: Int!
+  commentCount: Int!
+  bookmarkCount: Int!
 }

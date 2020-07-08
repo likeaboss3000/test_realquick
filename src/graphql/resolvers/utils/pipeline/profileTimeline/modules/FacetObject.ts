@@ -6,7 +6,7 @@ const unset = {
 };
 
 export class FacetObject {
-  static builder({ limit }: PostsFilter, id: string) {
+  static builder({ limit }: PostsFilter, id: string | null) {
     return id
       ? {
           $facet: {
@@ -29,7 +29,7 @@ export class FacetObject {
       : {
           $facet: {
             total: [{ $count: 'count' }],
-            promos: [{ $limit: limit }, unset],
+            posts: [{ $limit: limit }, unset],
           },
         };
   }

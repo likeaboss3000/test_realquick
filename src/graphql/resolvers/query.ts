@@ -4,8 +4,10 @@ import { fetchPromoTimeline } from './query/fetchPromoTimeline';
 import { fetchStore } from './query/fetchStore';
 import { fetchStoreTimeline } from './query/fetchStoreTimeline';
 import { fetchUser } from './query/fetchUser';
+import { currentUser } from './query/currentUser';
 
 const Query = {
+  currentUser,
   fetchProfile,
   fetchProfileTimeline,
   fetchPromoTimeline,

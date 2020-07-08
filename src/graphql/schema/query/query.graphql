@@ -1,12 +1,19 @@
 type Query {
+  currentUser: UserPayload!
   # Fetch User
   fetchUser(userId: String!): UserPayload!
   fetchProfile(profileId: String!): ProfilePayload!
   fetchStore(storeId: String!): StorePayload!
   # Fetch Timeline
   fetchPromoTimeline(filter: FetchPromoTimelineFilter!): PromoTimelinePayload!
-  fetchProfileTimeline(filter: FetchPostFilter): ProfileTimelinePayload!
-  fetchStoreTimeline(filter: FetchPostFilter): StoreTimelinePayload!
+  fetchProfileTimeline(
+    storeId: String
+    filter: FetchPostFilter
+  ): ProfileTimelinePayload!
+  fetchStoreTimeline(
+    storeId: String
+    filter: FetchPostFilter
+  ): StoreTimelinePayload!
   # Fetch Reviews on given store
   fetchStoreReviews(filter: FetchPostFilter): StoreReviewsPayload!
 }

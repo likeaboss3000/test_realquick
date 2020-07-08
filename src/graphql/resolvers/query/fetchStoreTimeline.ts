@@ -14,6 +14,7 @@ export async function fetchStoreTimeline(
       filter: postsFilter,
       storeId,
     });
+
     const { posts, total } = await ReadModel.getStoreTimeline(pipeline);
     const postConnection = getPaginatedObject({ posts, total });
 

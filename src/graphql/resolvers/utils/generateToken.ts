@@ -2,7 +2,7 @@ import * as jwt from 'jsonwebtoken';
 
 export function generateToken(user: any) {
   const payload: CurrentUser = {
-    sub: user.userId,
+    sub: user.id,
     userType: user.userType,
     iat: Date.now(),
     iss: 'PromoIn',

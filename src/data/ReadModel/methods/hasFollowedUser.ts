@@ -3,9 +3,9 @@ import { ReadModel } from '..';
 
 export async function hasFollowedUser(this: ReadModel, { id, currentUserId }) {
   try {
-    const hasFollowed = this.usersColl.findOne({
+    const hasFollowed = await this.usersColl.findOne({
       _id: new ObjectId(currentUserId),
-      'followings._id': new ObjectId(id),
+      'followings.id': new ObjectId(id),
     });
     return hasFollowed ? true : false;
   } catch (e) {

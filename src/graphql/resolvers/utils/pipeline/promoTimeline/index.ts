@@ -1,6 +1,10 @@
 import { FacetObject } from './modules/FacetObject';
 import { SortObject } from './modules/SortObject';
-import { MatchCategoryObject, MatchCursorObject } from './modules/MatchObject';
+import {
+  MatchCategoryObject,
+  MatchCursorObject,
+  MatchPostTypeObject,
+} from './modules/MatchObject';
 import { PromoTimelineFilter } from '../../getPromoTimelineFilter';
 
 export function getPromoTimelinePipeline({
@@ -13,10 +17,11 @@ export function getPromoTimelinePipeline({
   let pipeline: any[] = [];
   try {
     const array = [
+      MatchPostTypeObject.builder({ postType: 'PromoFlyer' }),
       MatchCategoryObject.builder(filter),
       MatchCursorObject.builder(filter),
-      SortObject.builder(filter),
-      FacetObject.builder(filter, currentUser.id),
+      SortObject.builder(),
+      FacetObject.builder(filter, currentUser ? currentUser.id : null),
     ];
     array.forEach((object) => {
       if (object) pipeline.push(object);

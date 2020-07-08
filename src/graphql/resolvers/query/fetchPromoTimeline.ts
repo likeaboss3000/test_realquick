@@ -19,7 +19,7 @@ export async function fetchPromoTimeline(
     const { promos, total } = await ReadModel.getPromoTimeline(pipeline);
     const promoConnection = getPaginatedObject({ posts: promos, total });
 
-    return { status: 200, storeTimeline: promoConnection, userErrors: [] };
+    return { status: 200, promoTimeline: promoConnection, userErrors: [] };
   } catch (e) {
     return {
       status: 400,

@@ -1,4 +1,13 @@
 import { MongoClient, Db, Collection } from 'mongodb';
+import { fetchProfile } from './methods/fetchProfile';
+import { fetchStore } from './methods/fetchStore';
+import { fetchStores } from './methods/fetchStores';
+import { fetchUserByEmail } from './methods/fetchUserByEmail';
+import { fetchUserById } from './methods/fetchUserById';
+import { getPromoTimeline } from './methods/getPromoTimeline';
+import { getProfileTimeline } from './methods/getProfileTimeline';
+import { getStoreTimeline } from './methods/getStoreTimeline';
+import { hasFollowedUser } from './methods/hasFollowedUser';
 
 export class ReadModel {
   private _db: Db;
@@ -29,4 +38,14 @@ export class ReadModel {
   get postsColl(): Collection {
     return this._postsColl;
   }
+
+  fetchProfile = fetchProfile;
+  fetchStore = fetchStore;
+  fetchStores = fetchStores;
+  fetchUserByEmail = fetchUserByEmail;
+  fetchUserById = fetchUserById;
+  getPromoTimeline = getPromoTimeline;
+  getProfileTimeline = getProfileTimeline;
+  getStoreTimeline = getStoreTimeline;
+  hasFollowedUser = hasFollowedUser;
 }

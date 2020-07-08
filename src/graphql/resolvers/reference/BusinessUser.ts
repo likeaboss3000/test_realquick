@@ -3,8 +3,7 @@ const BusinessUser = {
     const storeIds = stores.map(({ id }) => id);
     return ReadModel.fetchStores({ storeIds });
   },
-  async hasFollowed({ id, hasFollowed }, args, { ReadModel, currentUser }) {
-    if (hasFollowed) return hasFollowed;
+  async hasFollowed({ id }, args, { ReadModel, currentUser }) {
     if (!currentUser) return false;
     return ReadModel.hasFollowedUser({ id, currentUserId: currentUser.id });
   },

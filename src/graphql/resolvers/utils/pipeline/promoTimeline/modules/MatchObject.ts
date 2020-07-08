@@ -1,26 +1,29 @@
 import { ObjectId } from 'mongodb';
 import { PromoTimelineFilter } from '../../../getPromoTimelineFilter';
 
+export class MatchPostTypeObject {
+  static builder({ postType }) {
+    return { $match: { postType } };
+  }
+}
+
 export class MatchCategoryObject {
   static builder({ category }: PromoTimelineFilter) {
-    return { $match: { category } };
+    return { $match: { category: { $in: [category] } } };
   }
 }
 
 export class MatchCursorObject {
   static builder({ cursor }: PromoTimelineFilter) {
-    return cursor
-      ? {
-          $match: {
-            $or: [
-              { sortAt: { $lt: cursor.split('_')[0] } },
-              {
-                sortAt: cursor.split('_')[0],
-                _id: { $lt: new ObjectId(cursor.split('_')[1]) },
-              },
-            ],
-          },
-        }
-      : null;
+    if (!cursor) return null;
+    const [sortAt, _id] = cursor.split('_');
+    return {
+      $match: {
+        $or: [
+          { sortAt: { $lt: parseInt(sortAt) } },
+          { sortAt: parseInt(sortAt), _id: { $lt: new ObjectId(_id) } },
+        ],
+      },
+    };
   }
 }

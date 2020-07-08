@@ -6,6 +6,7 @@ type BusinessUser implements User {
   category: [BusinessCategory!]!
   userType: UserType!
   stores: [Store!]!
+  rating: Float!
   followingCount: Int!
   followerCount: Int!
   hasFollowed: Boolean!
@@ -13,7 +14,8 @@ type BusinessUser implements User {
 
 type Store {
   id: ID!
-  description: String!
+  description: String
+  alias: String!
   owner: BusinessUser!
   posts(filter: FetchPostFilter): StoreTimelinePayload!
 }

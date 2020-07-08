@@ -17,11 +17,11 @@ export async function fetchProfileTimeline(
     const { posts, total } = await ReadModel.getProfileTimeline(pipeline);
     const postConnection = getPaginatedObject({ posts, total });
 
-    return { status: 200, storeTimeline: postConnection, userErrors: [] };
+    return { status: 200, profileTimeline: postConnection, userErrors: [] };
   } catch (e) {
     return {
       status: 400,
-      storeTimeline: { edges: [], pageInfo: null },
+      profileTimeline: { edges: [], pageInfo: null },
       userErrors: [{ type: e.name, message: e.message }],
     };
   }

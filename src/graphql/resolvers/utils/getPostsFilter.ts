@@ -1,5 +1,5 @@
-export function getPostsFilter(filter: PostsFilterInput): PostsFilter {
-  let postsFilter: any;
+export function getPostsFilter(filter: PostsFilterInput = {}): PostsFilter {
+  let postsFilter: { [key: string]: any } = [];
   try {
     const { cursor, limit } = filter;
     if (limit > 30) {
@@ -16,7 +16,7 @@ export function getPostsFilter(filter: PostsFilterInput): PostsFilter {
     }
     throw e;
   }
-  return postsFilter;
+  return postsFilter as PostsFilter;
 }
 
 export interface PostsFilterInput {

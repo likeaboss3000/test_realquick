@@ -6,7 +6,7 @@ const unset = {
 };
 
 export class FacetObject {
-  static builder({ limit }: PromoTimelineFilter, id: string) {
+  static builder({ limit }: PromoTimelineFilter, id: string | null) {
     return id
       ? {
           $facet: {
